@@ -10,12 +10,12 @@ const hText = document.getElementById("hp_text");
 const yNum = document.getElementById("year_num");
 let curYearPercent = 0;
 const updInterval = 750;
-let margin = getComputedStyle(document.documentElement).getPropertyValue("--margin").replace("px", "");
+let margin = getComputedStyle(document.documentElement).getPropertyValue("--gridMargin").replace("px", "");
 const daynNite = document.getElementById("day_night");
 
 const setDaySize = () => {
 	const { width, height } = daysContainer.getBoundingClientRect();
-	const min = Math.min(Math.floor(width / 41), Math.floor(height / 8)) - margin / 2;
+	const min = Math.floor(Math.sqrt(width * height/365) - margin );
 	document.documentElement.style.setProperty("--day_size", min + "px");
 };
 
@@ -99,7 +99,12 @@ const init = () => {
 	setInterval(() => {
 		startCalculating();
 	}, updInterval);
-	window.addEventListener("resize", setDaySize, true);
+	window.addEventListener("resize", () => {
+		daysContainer.innerHTML = "";
+		setDaySize();
+		daysContainer.append(getDaysArray(365));
+		setDaysCurrent();
+	});
 };
 
 document.addEventListener("DOMContentLoaded", () => {
