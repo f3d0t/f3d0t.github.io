@@ -15,7 +15,7 @@ const daynNite = document.getElementById("day_night");
 
 const setDaySize = () => {
 	const { width, height } = daysContainer.getBoundingClientRect();
-	const min = Math.floor(Math.sqrt(width * height/365) - margin );
+	const min = Math.floor(Math.sqrt((width * height) / 365) - margin);
 	document.documentElement.style.setProperty("--day_size", min + "px");
 };
 
@@ -111,23 +111,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	init();
 });
 
-const dayNightChange = (iconClass) => {
-	if (iconClass == "day_icon") {
+const dayNightChange = () => {
+	if (!daynNite.classList.contains("light")) {
 		document.documentElement.style.setProperty("--black", "#111");
 		document.documentElement.style.setProperty("--white", "#eee");
 		daynNite.classList.toggle("light");
-	}
-	if (iconClass == "night_icon") {
+	} else {
 		document.documentElement.style.setProperty("--black", "#eee");
 		document.documentElement.style.setProperty("--white", "#111");
 		daynNite.classList.toggle("light");
 	}
 };
 
-daynNite.addEventListener("click", ({ target }) => {
-	if (target.closest("span")) {
-		dayNightChange(target.closest("span").classList[0]);
-	}
+daynNite.addEventListener("click", () => {
+	dayNightChange();
 });
 
 const numOfDays = (year) => (isLeapYear(year) ? 366 : 365);
