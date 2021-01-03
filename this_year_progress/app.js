@@ -98,6 +98,7 @@ const init = () => {
     setInterval(() => {
         startCalculating();
     }, updInterval);
+    window.addEventListener('resize', setDaySize, true);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
