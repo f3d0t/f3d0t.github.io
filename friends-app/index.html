@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Friends app</title>
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎉</text></svg>">
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🎉</text></svg>" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 
@@ -12,12 +12,46 @@
 		<header class="header">
 			<h1 class="header__title">Friends app</h1>
 		</header>
+
 		<div class="filters">
-
-        </div>
-        <div class="main">
-
-        </div>
+			<div class="filters__section">
+				<h3>Filters:</h3>
+			</div>
+			<div class="filters__section">
+				<input type="text" name="search" placeholder="Filter by name or country" class="filters__text_field" autocomplete="off" />
+			</div>
+			<hr />
+			<div class="filters__section">
+				<p class="input__heading">By gender</p>
+				<input type="radio" id="male" name="gender" value="male" />
+				<label for="male">Male</label>
+				<input type="radio" id="female" name="gender" value="female" />
+				<label for="female">Female</label>
+				<input type="radio" id="all" name="gender" value="all" />
+				<label for="all">All</label>
+			</div>
+			<hr />
+			<div class="filters__section">
+				<p class="input__heading">By name</p>
+				<input type="radio" id="az" name="name" value="az" />
+				<label for="az">A-Z</label>
+				<input type="radio" id="za" name="name" value="za" />
+				<label for="za">Z-A</label>
+			</div>
+			<hr />
+			<div class="filters__section">
+				<p class="input__heading">By age</p>
+				<input type="radio" id="ascending" name="age" value="ascending" />
+				<label for="ascending">Ascending</label>
+				<input type="radio" id="descending" name="age" value="descending" />
+				<label for="descending">Descending</label>
+			</div>
+			<hr />
+			<div class="filters__section filters__section--centered">
+				<button class="filters__button">Reset</button>
+			</div>
+		</div>
+		<div class="main"></div>
 		<script src="js/app.js"></script>
 	</body>
 </html>
