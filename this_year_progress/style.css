@@ -33,7 +33,7 @@ body {
 .header {
 	display: flex;
 	align-items: flex-end;
-	height: 20%;
+	height: 20vh;
 	padding-left: var(--bodyMargin);
 	padding-bottom: var(--margin);
 	font-weight: 700;
@@ -86,7 +86,7 @@ body {
 }
 
 .main {
-	height: calc(80% - 50px);
+	height: calc(80vh - 50px);
 	margin: 0 var(--bodyMargin);
 	padding-bottom: 50px;
 	display: grid;
