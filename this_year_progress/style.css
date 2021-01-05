@@ -166,4 +166,8 @@ body {
 	:root {
 		--bodyMargin: 20px;
 	}
+	body {
+		touch-action: none;
+		-ms-touch-action: none;
+	}
 }

@@ -15,8 +15,9 @@ const daynNite = document.getElementById("day_night");
 
 const setDaySize = () => {
 	const { width, height } = daysContainer.getBoundingClientRect();
-	const min = Math.floor(Math.sqrt((width * height) / 365) - margin);
-	document.documentElement.style.setProperty("--day_size", min + "px");
+	let contSize = Math.floor(Math.sqrt((width * height) / 365));	
+	contSize -= margin*2;
+	document.documentElement.style.setProperty("--day_size", contSize + "px");
 };
 
 const getDaysArray = (daysCount) => {
