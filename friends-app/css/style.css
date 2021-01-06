@@ -56,8 +56,9 @@ body{
 .filters__button{
     width: 100px;
     margin: auto;
+    font-family: 'IBM Plex Mono', monospace;
 }
-.filters input, .filters label{
+.filters input[type=radio], .filters label{
     cursor: pointer;
 }
 
@@ -81,7 +82,7 @@ body{
     transition: box-shadow 600ms linear;
 }
 .card:hover{
-    box-shadow: 13px 13px 0px var(--shadow);
+    box-shadow: 13px 13px 0px var(--shadow), -13px -13px 0px var(--shadow);
 }
 .card__img{
     height: 126px;
