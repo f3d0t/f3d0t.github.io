@@ -15,8 +15,8 @@ const fetchData = async (requestLink) => {
 	}
 };
 
-const initApp = (dataArray) => {
-	const friends = new FriendsList(dataArray, MAIN);
+const initApp = (friendsDataArray) => {
+	const friends = new FriendsList(friendsDataArray, MAIN);
 	friends.renderCards();
 	bindEventListeners(friends);
 };
@@ -50,7 +50,6 @@ const bindEventListeners = (friends) => {
 	FILTERS.addEventListener("keydown", (event) => {
 		if (event.keyIdentifier == "U+000A" || event.keyIdentifier == "Enter" || event.keyCode == 13) {
 			event.preventDefault();
-			return false;
 		}
 	});
 };
@@ -81,6 +80,10 @@ class FriendsList {
 		}
 		this.renderCards();
 	}
+	filterBySearch(searchValue) {
+		const filteredArray = this.currentCards.filter((friendCard) => Object.values(friendCard).slice(1).join(" ").toLowerCase().indexOf(searchValue.toLowerCase()) > -1);
+		this.renderCards(filteredArray);
+	}
 	sortByName(sortType) {
 		if (sortType == "az") {
 			this.currentCards = sortObjectsByPropertyValue(this.currentCards, "name", "ascending");
@@ -98,10 +101,6 @@ class FriendsList {
 			this.currentCards = sortObjectsByPropertyValue(this.currentCards, "age", "descending");
 		}
 		this.renderCards();
-	}
-	filterBySearch(searchValue) {
-		const filteredArray = this.currentCards.filter((friendCard) => Object.values(friendCard).join(" ").toLowerCase().indexOf(searchValue.toLowerCase()) > -1);
-		this.renderCards(filteredArray);
 	}
 }
 
@@ -136,5 +135,5 @@ class FriendCard {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	fetchData(REQUEST_LINK).then((results) => initApp(results));
+	fetchData(REQUEST_LINK).then((resultDataArray) => initApp(resultDataArray));
 });
