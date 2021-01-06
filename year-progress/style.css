@@ -23,7 +23,7 @@ body {
 	font-family: "Fira Code", monospace;
 	background: var(--white);
 	color: var(--black);
-	position:relative; 
+	position: relative;
 	overflow: hidden;
 	transition: all 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
 	width: 100vw;
@@ -167,7 +167,7 @@ body {
 	:root {
 		--bodyMargin: 20px;
 	}
-	body{
+	body {
 		min-height: -webkit-fill-available;
 	}
 }

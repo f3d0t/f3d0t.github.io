@@ -1,6 +1,8 @@
 const MAIN = document.querySelector(".main");
 const FILTERS = document.querySelector(".filters");
 const RESET_BUTTON = document.querySelector(".filters__button");
+const DAY_NIGHT = document.querySelector(".day_night");
+
 
 const FRIENDS_COUNT = 60;
 const REQUEST_LINK = `https://randomuser.me/api/?results=${FRIENDS_COUNT}`;
@@ -136,4 +138,23 @@ class FriendCard {
 
 document.addEventListener("DOMContentLoaded", () => {
 	fetchData(REQUEST_LINK).then((resultDataArray) => initApp(resultDataArray));
+	DAY_NIGHT.addEventListener("click", () => {
+		dayNightChange();
+	});
 });
+
+const dayNightChange = () => {
+	if (!DAY_NIGHT.classList.contains("light")) {
+		document.documentElement.style.setProperty("--light", "#111");
+		document.documentElement.style.setProperty("--dark", "#eee");
+		document.documentElement.style.setProperty("--gray", "#ccc");
+		DAY_NIGHT.classList.toggle("light");
+	} else {
+		document.documentElement.style.setProperty("--light", "#eee");
+		document.documentElement.style.setProperty("--dark", "#111");
+		document.documentElement.style.setProperty("--gray", "#222");
+		DAY_NIGHT.classList.toggle("light");
+	}
+};
+
+
