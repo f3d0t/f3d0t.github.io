@@ -30,19 +30,19 @@ const bindEventListeners = (friends) => {
 			friends.filterBySearch(target.value);
 		}
 		if (target.name === "gender") {
-			friends.filterByGender(target.id);
+			friends.filterByGender(target.value);
 			FILTERS.elements.search.value = "";
 			const checkedUserName = FILTERS.querySelector("[name=userName]:checked");
 			if (checkedUserName) {
-				friends.sortByName(checkedUserName.id);
+				friends.sortByName(checkedUserName.value);
 			}
 			const checkedUserAge = FILTERS.querySelector("[name=userAge]:checked");
 			if (checkedUserAge) {
-				friends.sortByAge(checkedUserAge.id);
+				friends.sortByAge(checkedUserAge.value);
 			} //this two forEach callbacks is needed to re-sort new arrays of cards, filtered by gender
 		}
 		if (target.name === "userName") {
-			friends.sortByName(target.id);
+			friends.sortByName(target.value);
 			FILTERS.elements.search.value = "";
 			const checkedUserAge = FILTERS.querySelector("[name=userAge]:checked");
 			if (checkedUserAge) {
@@ -50,7 +50,7 @@ const bindEventListeners = (friends) => {
 			}
 		}
 		if (target.name === "userAge") {
-			friends.sortByAge(target.id);
+			friends.sortByAge(target.value);
 			FILTERS.elements.search.value = "";
 		}
 	});
