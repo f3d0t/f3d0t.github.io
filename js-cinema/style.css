@@ -87,7 +87,7 @@ body {
 	text-align: right;
 	display: grid;
 	grid-template-rows: 100%;
-	grid-template-columns: 1fr 360px 1fr;
+	grid-template-columns: auto 360px 290px;
 	grid-template-areas: "textArea formArea ticketsArea";
 }
 .movie__title {
@@ -185,10 +185,6 @@ body {
 	grid-column-start: 4;
 }
 
-.form__tickets-number{
-	color: rgb(240, 150, 150);
-	cursor: pointer;
-}
 .form__button{
 	width: 100px;
 	box-shadow: 0px 0px 0px #fff;
@@ -203,6 +199,9 @@ body {
 	background-color: rgb(255, 255, 255);
 	box-shadow: 0px 0px 4px #fff;
 	border: 2px solid white; 
+}
+.form__tickets-number{
+	color: rgb(240, 150, 150);
 }
 
 .booked__tickets{
