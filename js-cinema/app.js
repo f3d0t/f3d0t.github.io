@@ -78,7 +78,8 @@ const bindEventListeners = () => {
 		updateForm(FORM_BUTTON, FORM_TICKETS_COUNT, FORM_TICKETS_COST, ACTIVE_SEATS, SEAT_PRICE);
 		updateTickets(TICKETS_CONTAINER, ACTIVE_SEATS, SEAT_PRICE);
 	});
-	FORM_BOOKING.addEventListener("submit", () => {
+	FORM_BOOKING.addEventListener("submit", (event) => {
+        event.preventDefault();
 		openModal(MODAL_WRAPPER, MODAL_TICKETS_CONTAINER, MODAL_COUNT, MODAL_COST, ACTIVE_SEATS, SEAT_PRICE);
 	});
 	document.addEventListener("keydown", (event) => {
@@ -88,7 +89,8 @@ const bindEventListeners = () => {
 		}
 	});
 	MODAL_CLOSE.addEventListener("click", () => closeModal(MODAL_WRAPPER));
-	MODAL_FORM.addEventListener("submit", () => {
+	MODAL_FORM.addEventListener("submit", (event) => {
+        event.preventDefault();
 		alert("Sucsessfully booked!");
 		setTimeout(() => {
 			location.reload();
