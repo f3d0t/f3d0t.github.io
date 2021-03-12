@@ -12,6 +12,7 @@ const MODAL_FORM = document.querySelector(".modal");
 const MODAL_COUNT = document.querySelector(".modal__count");
 const MODAL_COST = document.querySelector(".modal__cost");
 const MODAL_CLOSE = document.querySelector(".modal__close");
+const MODAL_BUTTON = document.querySelector(".modal__button");
 
 const addSeat = (seatsArray, row, seat) => {
 	seatsArray.push(`${row}-${seat}`);
@@ -52,12 +53,13 @@ const updateTickets = (ticketsContainer, seatsArray, seatPrice) => {
 	ticketsContainer.innerHTML = getTicketsHtml(seatsArray, seatPrice);
 };
 
-const openModal = (modalWrapper, modalTicketsContainer, modalCount, modalCost, seatsArray, seatPrice) => {
+const openModal = (modalWrapper, modalTicketsContainer, modalCount, modalCost, modalButton, seatsArray, seatPrice) => {
 	updateTickets(modalTicketsContainer, seatsArray, seatPrice);
 	modalCount.textContent = seatsArray.length + " ticket";
 	if (seatsArray.length > 1) modalCount.textContent += "s";
 	modalCost.textContent = " for " + seatsArray.length * seatPrice + "$";
 	modalWrapper.style.display = "flex";
+    modalButton.focus();
 };
 
 const closeModal = (modalWrapper) => {
@@ -80,7 +82,7 @@ const bindEventListeners = () => {
 	});
 	FORM_BOOKING.addEventListener("submit", (event) => {
         event.preventDefault();
-		openModal(MODAL_WRAPPER, MODAL_TICKETS_CONTAINER, MODAL_COUNT, MODAL_COST, ACTIVE_SEATS, SEAT_PRICE);
+		openModal(MODAL_WRAPPER, MODAL_TICKETS_CONTAINER, MODAL_COUNT, MODAL_COST, MODAL_BUTTON, ACTIVE_SEATS, SEAT_PRICE);
 	});
 	document.addEventListener("keydown", (event) => {
 		if (event.key === "Escape") {
