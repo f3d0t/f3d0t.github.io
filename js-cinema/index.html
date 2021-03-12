@@ -63,9 +63,9 @@
 					<p class="movie__rating">IMDB rating: <span>8.8 / 10</span></p>
 					<p class="movie__language">Language: <span>English</span></p>
 					<p class="movie__format">Film format: <span>2D</span></p>
-					<p class="movie__seat-price">Seat price:<span></span></p>
+					<p class="movie__seat-price">Seat price: <span>2$</span></p>
 				</div>
-				<form action="#" class="form__booking">
+				<form class="form__booking">
 					<fieldset class="seats_booking">
 						<input id="1-1" type="checkbox" class="visually-hidden form__seat_input" data-seat="1" data-row="1" value="1-1" />
 						<label class="form__seat" for="1-1"></label>
@@ -164,8 +164,8 @@
 					</fieldset>
 					<p class="form__price">Ticket price: <span>2$</span></p>
 					<div class="form__button-container">
-						<span class="form__tickets-number"></span><span class="form__tickets-cost">Select seats</span>
-						<button class="form__button" type="button">Proceed</button>
+						<span class="form__tickets-count"></span><span class="form__tickets-cost">Select seats</span>
+						<button class="form__button" disabled>Proceed</button>
 					</div>
 					<fieldset class="seats_labels">
 						<label class="form__seat form__seat--taken"></label><span class="seats_labels__span">Taken</span> <label class="form__seat"></label
@@ -173,9 +173,9 @@
 						><span class="seats_labels__span">Selected</span>
 					</fieldset>
 				</form>
-				<div class="booked__tickets">
-					<p>Your booking:</p>
-					<div class="tickets__cont">
+				<div class="booked_tickets">
+					<p class="booked_tickets__heading">Your booking:</p>
+					<div class="tickets_cont">
 						<p>Select seats</p>
 					</div>
 				</div>
@@ -191,6 +191,19 @@
 				</strong>
 			</address>
 		</footer>
+		<div class="modal_wrapper">
+			<form class="modal">
+				<p class="modal__header">Confirm your booking</p>
+				<div class="modal__tickets_cont">
+					<p>Select seats</p>
+				</div>
+				<div class="modal__text">
+					<span class="modal__count"></span>
+					<span class="modal__cost">Select seats</span> <button class="modal__button">Confirm</button>
+				</div>
+				<span class="modal__close">X</span>
+			</form>
+		</div>
 		<script src="./app.js"></script>
 	</body>
 </html>
